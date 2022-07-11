@@ -1,3 +1,2 @@
-#Project_Age_Detector
-
-This is to create a program using OpenCV to detect the age of a person via camera.
+Objective :
+To build a gender and age detector that can approximately guess the gender and age of the person (face) through webcam.
