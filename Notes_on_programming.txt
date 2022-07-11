@@ -1,0 +1,51 @@
+Age Detection
+
+ Step 1: Create a function(highlightFace) which takes 3 parameters
+        -net is the total volume/ size
+        -frame is what we will define, highlight the area of the face
+        -conf_threshold (confidence score) the probability that the anchor box contains the object
+        Make the frame (frameHeight and frameWidth)
+        Blob (Binary Large Object) is apart of the image processing
+Step 2: Assessing the input (photo) convert this to a more understandable information for the machine
+        Set the detection confidence and the shape of the image
+        net.forward() Runs a forward pass to compute the net output. your detection i.e net. forward() will give
+        Numpy ndarray as output which you can use it to plot box on the given input image.
+        Draw a rectangle around the area predicted to be the face in the image
+Step 3: Set to call an argument when the program is implemented
+        This is by using the library too argparse
+        The argparse module in Python helps create a program in a command-line-environment in a way
+        that appears not only easy to code but also improves interaction. The argparse module also
+        automatically generates help and usage messages and issues errors when users give the program invalid arguments.
+
+When using OpenCV’s deep neural network module with Caffe models, you’ll need two sets of files:
+
+The .prototxt file(s) which define the model architecture (i.e., the layers themselves)
+The .caffemodel file which contains the weights for the actual layers
+Both files are required when using models trained using Caffe for deep learning.
+
+faceProto = 'modelweight/opencv_face_detector.pbtxt'
+faceModel = 'modelweight/opencv_face_detector_unint8.pb'
+ageProto = 'modelweight/age_deploy.prototext'
+ageModel = 'modelweight/age_net.caffemodel'
+
+The first way of calling the file was giving the error
+Traceback (most recent call last):
+     File "C:\Users\amyam\PycharmProjects\Recognition Project\gender_detection.py", line 76, in <module>
+     faceNet = cv2.dnn.readNet(faceModel, faceProto)
+cv2.error: OpenCV(4.5.5) D:\a\opencv-python\opencv-python\opencv\modules\dnn\src\caffe\caffe_io.cpp:1138: error:
+(-2:Unspecified error) FAILED: fs.is_open(). Can't open "modelweight/opencv_face_detector_unint8.pb" in function
+'cv::dnn::ReadProtoFromBinaryFile'
+
+-This might suggest that the method of using the file path was incorrect
+-This could be due to the uses of the separators between the paths to the file
+-Using this method gets the file path and its preferred way of being written
+-We told it to join the current working directory with the folder of the file and the file the separators would be added
+    due to the path function
+
+-Use the files (opencv) to tell the machine what to look in finding the face and age
+OpenCV provides the VideoCapture() function which is used to work with the Camera. We can do the
+Following task: Read video, display video, and save video. Capture from the camera and display it.
+
+# blob = cv2.dnn.blobFromImages([face], 1.0, (227, 227), MODEL_MEAN_VALUES, swapRB=False)
+
+
